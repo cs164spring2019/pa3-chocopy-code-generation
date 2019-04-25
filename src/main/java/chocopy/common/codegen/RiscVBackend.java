@@ -622,8 +622,8 @@ public class RiscVBackend {
     }
 
     /**
-     * Emit a branch-if-greater-or-equal (signed) instruction:
-     * if RS1 >= RS2 goto LABEL.
+     * Emit a branch-if-less-than (signed) instruction:
+     * if RS1 < RS2 goto LABEL.
      * COMMENT is an optional one-line comment (null if missing).
      */
     public void emitBLT(Register rs1, Register rs2, Label label,
@@ -632,8 +632,8 @@ public class RiscVBackend {
     }
 
     /**
-     * Emit a branch-if-greater-or-equal (unsigned) instruction:
-     * if RS1 >= RS2 goto LABEL.
+     * Emit a branch-if-less-than (unsigned) instruction:
+     * if RS1 < RS2 goto LABEL.
      * COMMENT is an optional one-line comment (null if missing).
      */
     public void emitBLTU(Register rs1, Register rs2, Label label,

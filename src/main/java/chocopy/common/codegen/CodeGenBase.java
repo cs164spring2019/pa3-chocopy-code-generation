@@ -244,7 +244,8 @@ public abstract class CodeGenBase {
         FuncInfo objectInit =
             makeFuncInfo("object.__init__", 0, SymbolType.NONE_TYPE,
                          globalSymbols, null, this::emitStdFunc);
-        objectInit.addParam(makeStackVarInfo("self", null, null, objectInit));
+        objectInit.addParam(makeStackVarInfo("self", SymbolType.OBJECT_TYPE,
+                                             null, objectInit));
         functions.add(objectInit);
 
         objectClass = makeClassInfo("object", getNextTypeTag(), null);
@@ -280,13 +281,15 @@ public abstract class CodeGenBase {
     protected void initFunctions() {
         printFunc = makeFuncInfo("print", 0, SymbolType.NONE_TYPE,
                                  globalSymbols, null, this::emitStdFunc);
-        printFunc.addParam(makeStackVarInfo("arg", null, null, printFunc));
+        printFunc.addParam(makeStackVarInfo("arg", SymbolType.OBJECT_TYPE,
+                                            null, printFunc));
         functions.add(printFunc);
         globalSymbols.put(printFunc.getBaseName(), printFunc);
 
         lenFunc = makeFuncInfo("len", 0, SymbolType.INT_TYPE,
                 globalSymbols, null, this::emitStdFunc);
-        lenFunc.addParam(makeStackVarInfo("arg", null, null, lenFunc));
+        lenFunc.addParam(makeStackVarInfo("arg", SymbolType.OBJECT_TYPE,
+                                          null, lenFunc));
         functions.add(lenFunc);
         globalSymbols.put(lenFunc.getBaseName(), lenFunc);
 
