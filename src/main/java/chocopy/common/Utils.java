@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.util.stream.Collectors;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 
 
 /** Utility functions for general use. */
@@ -23,7 +24,8 @@ public class Utils {
             Utils.class.getClassLoader().getResourceAsStream(fileName);
         if (is != null) {
             BufferedReader reader =
-                new BufferedReader(new InputStreamReader(is));
+                new BufferedReader
+                (new InputStreamReader(is, Charset.forName("UTF-8")));
             return reader.lines().collect
                 (Collectors.joining(System.lineSeparator()));
         }
