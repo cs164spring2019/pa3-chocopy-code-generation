@@ -445,7 +445,7 @@ public class RiscVBackend {
      */
     public void emitSLL(Register rd, Register rs1, Register rs2,
                         String comment) {
-        emitInsn(String.format("sll %s, %s, %d", rd, rs1, rs2), comment);
+        emitInsn(String.format("sll %s, %s, %s", rd, rs1, rs2), comment);
     }
 
     /**
@@ -463,7 +463,7 @@ public class RiscVBackend {
      */
     public void emitSRL(Register rd, Register rs1, Register rs2,
                         String comment) {
-        emitInsn(String.format("srl %s, %s, %d", rd, rs1, rs2), comment);
+        emitInsn(String.format("srl %s, %s, %s", rd, rs1, rs2), comment);
     }
 
     /**
@@ -481,7 +481,7 @@ public class RiscVBackend {
      */
     public void emitSRA(Register rd, Register rs1, Register rs2,
                         String comment) {
-        emitInsn(String.format("sra %s, %s, %d", rd, rs1, rs2), comment);
+        emitInsn(String.format("sra %s, %s, %s", rd, rs1, rs2), comment);
     }
 
     /**
